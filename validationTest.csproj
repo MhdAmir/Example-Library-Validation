@@ -1,5 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
+   <ItemGroup>
+    <ProjectReference Include="..\sindika.aspnet.validation\sindika.aspnet.validation.csproj" />
+  </ItemGroup>
+  
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -7,9 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="sindika.aspnet.validation-amir">
-        <HintPath>libs/sindika.aspnet.validation-amir.dll</HintPath>
-    </Reference>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
   </ItemGroup>
 

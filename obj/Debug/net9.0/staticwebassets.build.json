@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "vmzYOJSVXZ0KwnUM/+v7RhIMs9qC8mjklQAdQzlpxKA=",
+  "Source": "validationTest",
+  "BasePath": "_content/validationTest",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,11 +1,22 @@
+using Sindika.AspNet.Validation.Configuration;
+using Sindika.AspNet.Validation.Validators.Middleware;
+using Sindika.AspNet.Validation;
+using System.Text;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddControllers();
+builder.Services.Configure<ValidatorSettings>(builder.Configuration.GetSection("ValidationSettings"));
+
+// Add the validator services with the dependencies
+builder.Services.AddValidator();
+
 
 var app = builder.Build();
+app.UseMiddleware<ValidatorMiddleware>();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -13,15 +24,12 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
-
-// Tambahkan MapControllers SEBELUM app.Run()
-app.MapControllers();
 
 app.MapGet("/weatherforecast", () =>
 {
